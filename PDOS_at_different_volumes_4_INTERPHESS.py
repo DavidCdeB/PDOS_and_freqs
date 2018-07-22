@@ -4,12 +4,12 @@ import sys
 import numpy as np
 import os
 
-folder_222 = '/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell'
+folder_222 = '/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell'
 
 folder_222_INTERPHESS_222 = 'INTERPHESS_222'
 
-files_222 = ["125.845303_PDOS.PHONDOS"]
-files_222_INTER = ["125.845303_PDOS_INTERPHESS_222.PHONDOS"]
+files_222 = ["125.845303_RESTART_PDOS.PHONDOS"] 
+files_222_INTER = ["125.845303_RESTART_PDOS_INTERPHESS_222.PHONDOS"]
 
 vols_all = ["125.845303"]
 
@@ -55,8 +55,8 @@ fig.savefig("PDOS_0-3.pdf", bbox_inches='tight', pad_inches=0.3)#, tight_layout(
 
 # 1st Step: Calculating the cumulated entropy:
 
-nu_127_SCEL_222  = np.loadtxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell/All_freq.dat', skiprows = 1).T  
-nu_127_SCEL_222_INTER  = np.loadtxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell/INTERPHESS_222/All_freq.dat', skiprows = 1).T  
+nu_127_SCEL_222  = np.loadtxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell/All_freq.dat', skiprows = 1).T  
+nu_127_SCEL_222_INTER  = np.loadtxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell/INTERPHESS_222/All_freq.dat', skiprows = 1).T  
 
 
 ################### CONSTANTS   ###############
@@ -98,11 +98,11 @@ S_127_SCEL_222_INTER = S_127_SCEL_222_INTER / 128.0
 output_array_127_SCEL_222 = np.vstack((nu_127_SCEL_222, S_127_SCEL_222)).T
 output_array_127_SCEL_222_INTER = np.vstack((nu_127_SCEL_222_INTER, S_127_SCEL_222_INTER)).T
 
-np.savetxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell/nu_S.dat', output_array_127_SCEL_222, header="nu\tS", fmt="%0.12g")
-np.savetxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell/INTERPHESS_222/nu_S.dat', output_array_127_SCEL_222_INTER, header="nu\tS", fmt="%0.12g")
+np.savetxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell/nu_S.dat', output_array_127_SCEL_222, header="nu\tS", fmt="%0.12g")
+np.savetxt('/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell/INTERPHESS_222/nu_S.dat', output_array_127_SCEL_222_INTER, header="nu\tS", fmt="%0.12g")
 
-folder_222_All_freq = '/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell'
-folder_222_All_freq_INTER = '/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/2_times_landau_supercell/INTERPHESS_222'
+folder_222_All_freq = '/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell'
+folder_222_All_freq_INTER = '/home/david/Trabajo/structures/PDOS_at_different_volumes/Calcite_I/pob_TZVP/PBE-D3/Only_Veq/3_times_landau_supercell/INTERPHESS_222'
 
 fig = plt.figure()
 for indx_vols, indx_files in zip(range(1, len(vols)+1), range(len(vols))):
